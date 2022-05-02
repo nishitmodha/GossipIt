@@ -7,7 +7,7 @@ module MeetingRoom
     def initialize
       base_url = "https://api.daily.co/v1/rooms"
       url = "/rooms"
-      token = "Bearer 0c644c54efa5a3ee761565049d31143583c8941015ce4839d9c1e7e9a2095e44"
+      token = DAILY_TOKEN
       
       @conn = Faraday.new(url: base_url) do |faraday|
         faraday.request  :json
