@@ -22,12 +22,12 @@ class RoomsController < ApplicationController
   # POST /rooms or /rooms.json
   def create
     @room = Room.new(room_params)
-    # room = MeetingRoom::Create.new
-    # name = params["room"]["name"]
+    room = MeetingRoom::Create.new
+    name = params["room"]["name"]
 
     respond_to do |format|
       if @room.save
-        # room.create_room(name)
+        room.create_room(name)
         format.html { redirect_to room_url(@room), notice: "Room was successfully created." }
         format.json { render :show, status: :created, location: @room }
       else
