@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+
+ iframe {
+  width: 800px !important;
+  height: 550px !important;
+  top: 50px;
+  resize: both;
+  overflow: auto;
+  margin: auto;
+  position: relative !important;   
+}

@@ -5,7 +5,7 @@
     <% end %>
 
     <%= render @room %>
-    <%= button_tag "Start Call", type: 'button', onclick: "myFunction()", class: 'rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer' %>
+    <%= button_tag "Start Call", type: 'button', onclick: "createFrameAndJoinRoom()", class: 'rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer' %>
 
     <%= link_to 'Edit this room', edit_room_path(@room), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <div class="inline-block ml-2">
@@ -17,9 +17,10 @@
 
 <script crossorigin src="https://unpkg.com/@daily-co/daily-js"></script>
 <script>
-function myFunction() {
+function createFrameAndJoinRoom() {
   callFrame = window.DailyIframe.createFrame();
   var room = encodeURIComponent('<%=@room.name%>');
-  callFrame.join({ url: "https://gossipit.daily.co/" + room })
+  DAILY_ROOM_URL = "https://gossipit.daily.co/" + room;
+  callFrame.join({ url: DAILY_ROOM_URL })
 }
 </script>
